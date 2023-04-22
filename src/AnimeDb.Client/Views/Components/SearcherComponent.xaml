@@ -1,0 +1,32 @@
+﻿<UserControl x:Class="AnimeDb.Client.Views.Components.SearcherComponent"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:AnimeDb.Client.Views.Components" 
+             xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
+             mc:Ignorable="d"
+             xmlns:viewModels="clr-namespace:AnimeDb.Client.ViewModels.Catalog">
+    
+    <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="*"/>
+            <ColumnDefinition Width="auto"/>
+        </Grid.ColumnDefinitions>
+
+        <TextBox Grid.Column="0"
+                 Padding="10"
+                 Foreground="White"
+                 materialDesign:HintAssist.Hint="O que voce procura?"
+                 Text="{Binding Searched, UpdateSourceTrigger=PropertyChanged}"/>
+
+        <Button Grid.Column="1"
+                Style="{StaticResource MaterialDesignFlatSecondaryDarkButton}"
+                Content="{materialDesign:PackIcon Kind=Search}"
+                Foreground="White"
+                Command="{Binding SearchCommand}"
+                CommandParameter="{Binding}"/>
+
+    </Grid>
+    
+</UserControl>
